@@ -97,6 +97,85 @@ Run the tests using:
 ```
 mvn test
 ```
+### Test Coverage
+The application includes comprehensive unit and integration tests covering the following areas:
+
+#### Flow Log Parsing:
+
+- Correct parsing of valid log entries
+- Handling of invalid or malformed log entries
+- Edge cases (empty lines, extra whitespace)
+
+
+#### Lookup Table Loading:
+
+- Correct loading of valid lookup entries
+- Handling of invalid lookup table format
+- Case insensitivity in protocol matching
+
+
+#### Tag Matching:
+
+- Correct matching of flow log entries to tags
+- Handling of unmatched entries (should be tagged as "Untagged")
+- Performance testing with large datasets
+
+
+#### Output Generation:
+
+- Correct counting of tags and port/protocol combinations
+- Proper CSV formatting of output
+- Handling of edge cases (no matches, all untagged)
+
+
+#### Integration Tests:
+
+- End-to-end testing of the entire flow from input to output
+- Verification of correct output for known input datasets
+
+## Analysis and Considerations
+
+### Scalability:
+
+- The application uses efficient data structures (HashMaps) for lookup and counting, ensuring O(1) average time complexity for tag matching and counting operations.
+- For very large datasets (billions of entries), consider implementing batch processing or using distributed computing frameworks.
+
+
+### Memory Usage:
+
+- The program processes log entries one at a time, keeping memory usage constant regardless of input size.
+- Lookup table is kept in memory for fast access, which is efficient for tables up to millions of entries.
+
+
+### Extensibility:
+
+- The modular design with clear interfaces (Parser, LookupLoader, TagMatcher, etc.) allows for easy extension or modification of individual components.
+- New tag matching strategies can be implemented by creating new classes that implement the TagMatchStrategy interface.
+
+
+### Error Handling and Logging:
+
+- Comprehensive error handling is implemented to gracefully handle and log various error scenarios (parsing errors, invalid logs, etc.).
+- Logging is used throughout the application for easier debugging and monitoring.
+
+
+### Performance Optimizations:
+
+- StringBuilder is used for efficient string concatenation in output generation.
+- Efficient use of hash-based data structures (HashMap) for quick lookups and counting.
+- Stream processing of log entries to handle large files without loading everything into memory.
+- Use of primitive types where possible to reduce object creation overhead.
+- Minimizing string manipulations in tight loops to reduce garbage collection pressure.
+
+
+### Potential Improvements:
+
+- Implement multi-threading for parsing and processing large log files.
+- Add support for compressed input files to handle very large datasets more efficiently.
+- Implement a more sophisticated tag matching algorithm for complex rule sets.
+- Consider caching frequently used strings, such as protocol names, to reduce string creation overhead.
+- Implement lazy loading or pagination for very large lookup tables.
+- Use memory-mapped files for processing extremely large log files more efficiently.
 
 ## Conclusion
 

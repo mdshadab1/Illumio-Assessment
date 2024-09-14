@@ -33,8 +33,18 @@ The Flow Log Parser is a Java Spring Boot application designed to analyze and ca
 
 ### Prerequisites
 
-- Java 11 or later
+- Java 11
 - Maven
+Make sure that the Maven is using Java 11.
+Steps to make Maven use Java 11. Run on your Terminal
+```
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-11.0.x.jdk/Contents/Home
+export PATH=$JAVA_HOME/bin:$PATH
+```
+To make these changes permanent, you need to add these lines to your shell configuration file. This is typically ~/.bash_profile, ~/.zshrc, or ~/.profile depending on your shell and OS.
+```
+nano ~/.bash_profile
+```
 
 ### Building the Application
 
@@ -67,6 +77,8 @@ By default, the application will use the input and output file paths specified i
 
 - Input files (flow log and lookup table) should be placed in the `src/main/resources/` directory.
 - The output CSV file will be generated in the location specified in `application.properties`.
+
+I have included the data directory in the git, you can check data/output/output.csv for the result.
 
 ## Configuration
 

@@ -26,7 +26,8 @@ The Flow Log Parser is a Java Spring Boot application designed to analyze and ca
 ## Project Structure
 
 - **src/main/java/com/illumio/**: Contains the main Java classes.
-- **src/main/resources/**: Contains application properties and input files.
+- **src/main/resources/**: Contains application properties
+- **data/input/**: Contains input files.
 - **src/test/**: Contains test classes for the application.
 
 ## How to Run the Program

@@ -76,7 +76,7 @@ By default, the application will use the input and output file paths specified i
 
 ## Input and Output
 
-- Input files (flow log and lookup table) should be placed in the `src/main/resources/` directory.
+- Input files (flow log and lookup table) should be placed in the `data/input/` directory.
 - The output CSV file will be generated in the location specified in `application.properties`.
 
 I have included the data directory in the git, you can check data/output/output.csv for the result.

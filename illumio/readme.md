@@ -36,6 +36,7 @@ The Flow Log Parser is a Java Spring Boot application designed to analyze and ca
 
 - Java 11
 - Maven
+- Lombok (automatically managed by Maven)
   
 Make sure that the Maven is using Java 11.
 Steps to make Maven use Java 11. Run on your Terminal
@@ -47,6 +48,20 @@ To make these changes permanent, you need to add these lines to your shell confi
 ```
 nano ~/.bash_profile
 ```
+### Dependencies
+
+This project uses the following main dependencies:
+
+- Spring Boot Starter
+- Lombok
+- OpenCSV
+The complete list of dependencies can be found in the pom.xml file.
+
+#### Lombok
+This project uses Lombok to reduce boilerplate code. If you're using an IDE, you may need to install the Lombok plugin for your IDE to properly recognize Lombok annotations.
+
+- For IntelliJ IDEA: Install the "Lombok" plugin from the JetBrains plugin repository
+- For Eclipse: Follow the installation instructions on the Lombok website
 
 ### Building the Application
 
